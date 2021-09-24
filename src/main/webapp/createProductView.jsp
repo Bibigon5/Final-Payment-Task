@@ -10,11 +10,20 @@
 
 <html>
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        th {
+            cursor: pointer;
+        }
+        th:last-child, td:last-child {
+            text-align: right;
+        }
+    </style>
     <title>Create Product</title>
 </head>
 <body>
-<jsp:include page="_header.jsp"></jsp:include>
-<jsp:include page="_menu.jsp"></jsp:include>
+<jsp:include page="common/_header.jsp"></jsp:include>
+<jsp:include page="common/_menu.jsp"></jsp:include>
 
 <h3>Create Product</h3>
 
@@ -43,7 +52,7 @@
     </table>
 </form>
 
-<jsp:include page="_footer.jsp"></jsp:include>
+<jsp:include page="common/_footer.jsp"></jsp:include>
 
 </body>
 </html>

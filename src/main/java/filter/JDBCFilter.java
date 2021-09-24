@@ -15,6 +15,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import conn.ConnectionPool;
 import conn.ConnectionUtils;
 import utils.MyUtils;
 
@@ -87,7 +88,8 @@ public class JDBCFilter implements Filter {
             Connection conn = null;
             try {
                 // Create a Connection.
-                conn = ConnectionUtils.getConnection();
+                // conn = ConnectionUtils.getConnection();
+                conn = ConnectionPool.getInstance().getConnection();
                 // Set outo commit to false.
                 conn.setAutoCommit(false);
 
@@ -102,10 +104,12 @@ public class JDBCFilter implements Filter {
                 conn.commit();
             } catch (Exception e) {
                 e.printStackTrace();
-                ConnectionUtils.rollbackQuietly(conn);
+                //ConnectionUtils.rollbackQuietly(conn);
+                ConnectionPool.rollback(conn);
                 throw new ServletException();
             } finally {
-                ConnectionUtils.closeQuietly(conn);
+                //ConnectionUtils.closeQuietly(conn);
+                ConnectionPool.close(conn);
             }
         }
         // With commons requests (images, css, html, ..)

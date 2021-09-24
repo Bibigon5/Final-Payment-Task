@@ -12,8 +12,8 @@
     <title>Product List</title>
 </head>
 <body>
-<jsp:include page="_header.jsp"></jsp:include>
-<jsp:include page="_menu.jsp"></jsp:include>
+<jsp:include page="common/_header.jsp"></jsp:include>
+<jsp:include page="common/_menu.jsp"></jsp:include>
 
 <h3>Product List</h3>
 
@@ -44,7 +44,7 @@
 
 <a href="createProduct" >Create Product</a>
 
-<jsp:include page="_footer.jsp"></jsp:include>
+<jsp:include page="common/_footer.jsp"></jsp:include>
 
 </body>
 </html>

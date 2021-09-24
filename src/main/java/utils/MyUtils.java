@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import logic1.UserInfo;
+import entity.Payments;
+import entity.UserInfo;
 
 public class MyUtils {
 
@@ -24,8 +25,7 @@ public class MyUtils {
 
     // Get the Connection object has been stored in attribute of the request.
     public static Connection getStoredConnection(ServletRequest request) {
-        Connection conn = (Connection) request.getAttribute(ATT_NAME_CONNECTION);
-        return conn;
+        return (Connection) request.getAttribute(ATT_NAME_CONNECTION);
     }
 
     // Store user info in Session.
@@ -39,15 +39,27 @@ public class MyUtils {
         return (UserInfo) session.getAttribute("loginedUser");
     }
 
-    // Store user info in Session.
+    // Store user name in Session.
     public static void storeLoginedUserName(HttpSession session, String loginedUserName) {
-        // On the JSP can access via ${loginedUser}
+        // On the JSP can access via ${loginedUserName}
         session.setAttribute("loginedUserName", loginedUserName);
     }
 
-    // Get the user information stored in the session.
+    // Get the user name stored in the session.
     public static String getLoginedUserName(HttpSession session) {
         return (String) session.getAttribute("loginedUserName");
+    }
+
+    // Store payment information in Session.
+    public static void storeMobileTopUp(HttpSession session, Payments payment) {
+        // On the JSP can access via ${loginedUserName}
+        session.setAttribute("payment", payment);
+    }
+
+    // Get the payment information stored in the session.
+    public static Payments getMobileTopUpPayment(HttpSession session) {
+        // On the JSP can access via ${loginedUserName}
+        return (Payments) session.getAttribute("payment");
     }
 
     // Store info in Cookie

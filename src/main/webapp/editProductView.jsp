@@ -12,8 +12,8 @@
     <title>Edit Product</title>
 </head>
 <body>
-<jsp:include page="_header.jsp"></jsp:include>
-<jsp:include page="_menu.jsp"></jsp:include>
+<jsp:include page="common/_header.jsp"></jsp:include>
+<jsp:include page="common/_menu.jsp"></jsp:include>
 
 <h3>Edit Product</h3>
 
@@ -45,7 +45,7 @@
     </form>
 </c:if>
 
-<jsp:include page="_footer.jsp"></jsp:include>
+<jsp:include page="common/_footer.jsp"></jsp:include>
 
 </body>
 </html>

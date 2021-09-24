@@ -8,7 +8,7 @@ public class ConnectionUtils {
     public static Connection getConnection()
             throws ClassNotFoundException, SQLException {
 
-        // Here I using Oracle Database.
+        // Here I using MySQL Database.
         // (You can change to use another database.)
         return MySQLConnUtils.getMySQLConnection();
 

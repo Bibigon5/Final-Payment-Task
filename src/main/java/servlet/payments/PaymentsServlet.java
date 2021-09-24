@@ -1,8 +1,6 @@
 package servlet.payments;
 
-import logic1.Product;
-import logic1.UserInfo;
-import utils.DBUtils;
+import entity.UserInfo;
 import utils.MyUtils;
 
 import javax.servlet.RequestDispatcher;
@@ -13,8 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 @WebServlet(urlPatterns = { "/payments" })
 public class PaymentsServlet extends HttpServlet {

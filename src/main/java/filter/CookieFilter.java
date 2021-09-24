@@ -14,7 +14,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import logic1.UserInfo;
+import entity.UserInfo;
 import utils.DBUtils;
 import utils.MyUtils;
 

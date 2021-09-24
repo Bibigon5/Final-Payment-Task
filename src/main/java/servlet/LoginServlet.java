@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import logic1.UserInfo;
+import conn.ConnectionUtils;
+import entity.UserInfo;
 import utils.DBUtils;
 import utils.MyUtils;
 
@@ -64,9 +66,13 @@ public class LoginServlet extends HttpServlet {
                 if (user == null) {
                     hasError = true;
                     errorString = "User is not found";
+                } else if (Objects.equals(DBUtils.getUserStatus(conn, userName), "BLOCKED")) {
+                    hasError = true;
+                    errorString = "Sorry, but you were blocked in this payment system.";
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
+                ConnectionUtils.rollbackQuietly(conn);
                 hasError = true;
                 errorString = e.getMessage();
             }
