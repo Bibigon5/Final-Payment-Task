@@ -379,7 +379,7 @@ public class DBUtils {
         pstm.setString(3, pay.getPaymentPurpose());
         pstm.setString(4, pay.getPaymentTelephone());
         pstm.setDouble(5, pay.getPaymentAmount());
-        pstm.setDate(6, pay.getPaymentDateAndTime());
+        pstm.setString(6, pay.getPaymentDateAndTime());
         pstm.setString(7, pay.getPaymentStatus());
 
         System.out.println(pstm);
@@ -425,13 +425,14 @@ public class DBUtils {
     }
 
     public static void commitPayment (Connection conn, Payments payment) throws SQLException {
-        String sql = "UPDATE payments " + "SET PAYMENT_STATUS =" + " ? " +
+        String sql = "UPDATE payments " + "SET PAYMENT_STATUS =" + " ? " +", PAYMENT_DATE_AND_TIME =" + " ? " +
                 "WHERE PAYMENT_NUMBER = ?;";
 
         PreparedStatement pstm = conn.prepareStatement(sql);
         payment.setPaymentStatusDispatched();
         pstm.setString(1, payment.getPaymentStatus());
-        pstm.setInt(2, payment.getPaymentNumber());
+        pstm.setString(2, payment.getPaymentDateAndTime());
+        pstm.setInt(3, payment.getPaymentNumber());
 
         System.out.println(pstm);
         pstm.executeUpdate();
@@ -465,7 +466,7 @@ public class DBUtils {
             String paymentPurpose = rs.getString("PAYMENT_PURPOSE");
             String paymentTelephone = rs.getString("PAYMENT_TELEPHONE");
             Double paymentAmount = rs.getDouble("PAYMENT_AMOUNT");
-            Date paymentDateAndTime = rs.getDate("PAYMENT_DATE_AND_TIME");
+            String paymentDateAndTime = rs.getString("PAYMENT_DATE_AND_TIME");
             String paymentStatus = rs.getString("PAYMENT_STATUS");
 
             Payments payment = new Payments();

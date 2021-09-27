@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 @WebServlet(urlPatterns = { "/paymentCommit" })
@@ -34,6 +36,8 @@ public class PaymentCommitServlet extends HttpServlet {
         Payments payment = null;
         String errorString = null;
         String notification = null;
+        Date dateNow = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy.MM.dd hh:mm:ss");
 
 
         try {
@@ -41,6 +45,8 @@ public class PaymentCommitServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        payment.setPaymentDateAndTime(formatForDateNow.format(dateNow));
 
         String number = payment.getCardNumber();
 

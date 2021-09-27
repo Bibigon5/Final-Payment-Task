@@ -50,10 +50,8 @@ public class MobileTopUpConfirmationServlet extends HttpServlet {
 
         Payments payment = MyUtils.getMobileTopUpPayment(session);
         UserInfo loginedUser = MyUtils.getLoginedUser(session);
-        long millis = System.currentTimeMillis();
-        Date date = new Date(millis);
 
-        payment.setPaymentDateAndTime(date);
+        payment.setPaymentDateAndTime("Waiting for dispatch");
 
         try {
             DBUtils.addPayment(conn, payment, loginedUser);

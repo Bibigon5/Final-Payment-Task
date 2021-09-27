@@ -84,6 +84,7 @@
         </div>
     </div>
 </c:if>
+<script src="${pageContext.request.contextPath}/examples/main.js"></script>
 
 </body>
 </html>

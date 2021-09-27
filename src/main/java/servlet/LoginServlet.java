@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import conn.ConnectionUtils;
 import entity.UserInfo;
 import utils.DBUtils;
 import utils.MyUtils;
@@ -72,7 +71,6 @@ public class LoginServlet extends HttpServlet {
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
-                ConnectionUtils.rollbackQuietly(conn);
                 hasError = true;
                 errorString = e.getMessage();
             }

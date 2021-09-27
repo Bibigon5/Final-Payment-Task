@@ -11,7 +11,7 @@ public class Payments {
     private String paymentPurpose;
     private String paymentTelephone;
     private Double paymentAmount;
-    private Date paymentDateAndTime;
+    private String paymentDateAndTime;
     private String paymentStatus;
 
     public Payments() {
@@ -57,11 +57,11 @@ public class Payments {
         this.paymentAmount = paymentAmount;
     }
 
-    public Date getPaymentDateAndTime() {
+    public String getPaymentDateAndTime() {
         return paymentDateAndTime;
     }
 
-    public void setPaymentDateAndTime(Date paymentDateAndTime) {
+    public void setPaymentDateAndTime(String paymentDateAndTime) {
         this.paymentDateAndTime = paymentDateAndTime;
     }
 

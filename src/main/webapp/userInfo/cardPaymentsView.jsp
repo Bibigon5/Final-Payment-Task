@@ -104,6 +104,8 @@
     </div>
 </div>
 </c:if>
+<jsp:include page="../common/_footer.jsp"></jsp:include>
+<script src="${pageContext.request.contextPath}/examples/main.js"></script>
 
 </body>
 </html>

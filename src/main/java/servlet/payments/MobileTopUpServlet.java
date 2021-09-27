@@ -53,7 +53,7 @@ public class MobileTopUpServlet extends HttpServlet {
 
 
         RequestDispatcher dispatcher = this.getServletContext().
-                getRequestDispatcher("/mobileTopUpView.jsp");
+                getRequestDispatcher("/payments/mobileTopUpView.jsp");
 
         dispatcher.forward(request, response);
     }
@@ -69,16 +69,19 @@ public class MobileTopUpServlet extends HttpServlet {
         double amount = 0.0;
 
         Payments payment = new Payments();
-        Account acc = new Account();
 
         boolean hasError = false;
         String errorString = null;
-        Double cardBalance;
 
         try {
             amount = Double.parseDouble(amountStr);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        if (card == null) {
+            errorString = "You must choose a credit card to proceed";
+            hasError = true;
         }
 
         //ввести некие проверки

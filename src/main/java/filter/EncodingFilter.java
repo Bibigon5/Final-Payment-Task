@@ -15,7 +15,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import conn.ConnectionUtils;
 import utils.MyUtils;
 
 @WebFilter(filterName = "encodingFilter", urlPatterns = { "/*" })
