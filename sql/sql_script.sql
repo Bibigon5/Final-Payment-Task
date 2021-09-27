@@ -1,0 +1,60 @@
+use java_ee_db;
+
+DROP TABLE IF EXISTS `USER_INFO`;
+
+-- Create table
+create table if not exists USER_INFO
+(
+USER_NAME varchar(30) not null,
+GENDER VARCHAR(20) not null,
+PASSWORD  VARCHAR(30) not null,
+USER_STATUS VARCHAR(10) DEFAULT 'UNBLOCKED',
+USER_ROLE VARCHAR(20) DEFAULT 'USER',
+primary key (USER_NAME)
+);
+
+DROP TABLE IF EXISTS `ACCOUNT`;
+
+-- Create table
+create table if not exists ACCOUNT
+(
+ID SERIAL NOT NULL,
+USER_NAME varchar(30) not null,
+CARD_NAME varchar(30) not null,
+CARD_NUMBER varchar(30) not null,
+CARD_BALANCE DOUBLE not null DEFAULT 0,
+CARD_STATUS varchar(30) DEFAULT 'UNBLOCKED',
+UNBLOCK_REQUEST varchar(10) DEFAULT 'NO',
+primary key (ID)
+);
+
+DROP TABLE IF EXISTS `PAYMENTS`;
+
+-- Create table
+create table if not exists PAYMENTS
+(
+PAYMENT_NUMBER SERIAL NOT NULL,
+PAYMENT_AUTHOR VARCHAR(30) NOT NULL,
+FROM_CARD_NUMBER varchar(30) not null,
+PAYMENT_PURPOSE VARCHAR(100) NOT NULL,
+PAYMENT_TELEPHONE VARCHAR(20) NOT NULL,
+PAYMENT_AMOUNT DOUBLE NOT NULL,
+PAYMENT_DATE_AND_TIME VARCHAR(100) NOT NULL,
+PAYMENT_STATUS VARCHAR(20) NOT NULL,
+primary key (PAYMENT_NUMBER)
+);
+
+
+-- Insert data: ---------------------------------------------------------------
+ 
+insert into user_info (USER_NAME, GENDER, PASSWORD, USER_ROLE)
+values ('admin', 'M', 'admin12345', 'ADMIN');
+
+insert into ACCOUNT (USER_NAME, CARD_NAME, CARD_NUMBER, CARD_BALANCE)
+values ('admin', 'M', '3535353535353535', 0 );
+
+insert into PAYMENTS (PAYMENT_NUMBER, PAYMENT_AUTHOR, FROM_CARD_NUMBER, PAYMENT_PURPOSE, PAYMENT_TELEPHONE, PAYMENT_AMOUNT,
+                      PAYMENT_DATE_AND_TIME , PAYMENT_STATUS)
+values (1, 'admin', 5, 'CHECK', 1,  0, '2021-09-04 20:20:20', 'CHECK');
+
+

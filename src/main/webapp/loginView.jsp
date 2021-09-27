@@ -33,7 +33,6 @@
 <h3><fmt:message key="login.header" /></h3>
 <p style="color: red;">${errorString}</p>
 
-
 <form method="POST" action="${pageContext.request.contextPath}/login">
     <table border="0">
         <tr>

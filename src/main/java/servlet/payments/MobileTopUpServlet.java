@@ -112,7 +112,7 @@ public class MobileTopUpServlet extends HttpServlet {
 
             // Forward to /WEB-INF/views/login.jsp
             RequestDispatcher dispatcher //
-                    = this.getServletContext().getRequestDispatcher("/mobileTopUpView.jsp");
+                    = this.getServletContext().getRequestDispatcher("/payments/mobileTopUpView.jsp");
 
             dispatcher.forward(request, response);
         } else {

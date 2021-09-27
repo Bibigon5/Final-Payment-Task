@@ -37,16 +37,23 @@
     <table border="0">
         <tr>
             <td><fmt:message key="registration.userName" /></td>
-            <td><input type="text" name="userName" value= "${user.userName}" /> </td>
+            <td><input type="text" name="userName" value= "${user.userName}" maxlength="20"/> </td>
         </tr>
         <tr>
             <td><fmt:message key="registration.gender" /></td>
-            <td><input type="text" name="gender" value= "${user.gender}" /> </td>
+            <td>
+                <input type="radio" id="male" name="gender" value="Male">
+                <label for="male"><fmt:message key="registration.genderMale" /></label>
+                <br>
+                <input type="radio" id="female" name="gender" value="Female">
+                <label for="female"><fmt:message key="registration.genderFemale" /></label>
+            </td>
         </tr>
         <tr>
             <td><fmt:message key="registration.password" /></td>
-            <td><input type="password" name="password" value= "${user.password}" /> </td>
+            <td><input type="password" name="password" value= "${user.password}" maxlength="20"/> </td>
         </tr>
+        <br>
         <tr>
             <td colspan ="2">
                 <input type="submit" value= "<fmt:message key="registration.submit" />" />
@@ -56,8 +63,8 @@
     </table>
 </form>
 
-<p style="color:blue;">User Name example: tom,Tony322<fmt:message key="registration.exampleName" /></p>
-<p style="color:blue;">Password example: tom001 or jerry001!_*/=<fmt:message key="registration.examplePass" /></p>
+<p style="color:blue;"><fmt:message key="registration.exampleName" /></p>
+<p style="color:blue;"><fmt:message key="registration.examplePass" /></p>
 <jsp:include page="common/_footer.jsp"></jsp:include>
 
 </body>

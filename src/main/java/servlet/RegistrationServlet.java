@@ -44,7 +44,7 @@ public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String userName = request.getParameter("userName");
-        String gender = request.getParameter("gender");//сделать с галочками
+        String gender = request.getParameter("gender");
         String password = request.getParameter("password");
 
         UserInfo user;

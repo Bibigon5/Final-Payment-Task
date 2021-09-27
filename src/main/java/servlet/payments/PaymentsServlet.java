@@ -38,7 +38,7 @@ public class PaymentsServlet extends HttpServlet {
         // Store info to the request attribute before forwarding.
         request.setAttribute("user", loginedUser);
         RequestDispatcher dispatcher = this.getServletContext().
-                getRequestDispatcher("/paymentsView.jsp");
+                getRequestDispatcher("/payments/paymentsView.jsp");
 
         dispatcher.forward(request, response);
     }

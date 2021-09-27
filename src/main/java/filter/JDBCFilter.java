@@ -16,7 +16,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
 import conn.ConnectionPool;
-import conn.ConnectionUtils;
 import utils.MyUtils;
 
 @WebFilter(filterName = "jdbcFilter", urlPatterns = { "/*" })
@@ -104,11 +103,9 @@ public class JDBCFilter implements Filter {
                 conn.commit();
             } catch (Exception e) {
                 e.printStackTrace();
-                //ConnectionUtils.rollbackQuietly(conn);
                 ConnectionPool.rollback(conn);
                 throw new ServletException();
             } finally {
-                //ConnectionUtils.closeQuietly(conn);
                 ConnectionPool.close(conn);
             }
         }

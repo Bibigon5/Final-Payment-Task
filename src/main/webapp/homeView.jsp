@@ -36,17 +36,16 @@
 <h3><fmt:message key="home.homePage"/></h3>
 <br>
 <h2><fmt:message key="home.description"/></h2>
-
-This is demo Simple web application using jsp,servlet &amp; Jdbc. <br><br>
-<b>It includes the following functions:</b>
-<ul>
-    <li>Login</li>
-    <li>Storing user information in cookies</li>
-    <li>Payments List</li>
-    <li>Add your personal card</li>
-    <li>Edit Product</li>
-    <li>Delete Product</li>
-</ul>
+<br>
+<br>
+<h4>
+    <p>
+        <fmt:message key="home.poem"/>
+        <br>
+        <fmt:message key="home.poemAuthor"/>
+    </p>
+</h4>
+<br>
 
 <jsp:include page="common/_footer.jsp"></jsp:include>
 

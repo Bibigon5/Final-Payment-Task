@@ -34,7 +34,15 @@
 
 <fmt:message key="userInfo.userName" />: <b>${user.userName}</b>
 <br />
-<fmt:message key="userInfo.gender" />: ${user.gender }
+<c:choose>
+<c:when test="${user.gender.equals('Male')}">
+    <fmt:message key="userInfo.gender" />: <fmt:message key="registration.genderMale" />
+</c:when>
+<c:otherwise>
+    <fmt:message key="userInfo.gender" />: <fmt:message key="registration.genderFemale" />
+</c:otherwise>
+</c:choose>
+
 <br />
 
 <c:if test="${empty cardList}">
@@ -98,6 +106,8 @@
 <h3><fmt:message key="userInfo.youCanAddCard" />, ${user.userName}</h3>
 
 <p style="color: red;">${errorString1}</p>
+<p style="color: red;">${notification}</p>
+
 
 <form method="POST" action="${pageContext.request.contextPath}/userInfo">
     <table border="0">
